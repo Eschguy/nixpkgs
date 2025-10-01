@@ -1,6 +1,7 @@
 {
   lib,
   flutter329,
+  makeDesktopItem,
   fetchFromGitHub,
 }:
 
@@ -16,6 +17,15 @@ flutter329.buildFlutterApplication rec {
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
+
+  desktopItem = makeDesktopItem {
+    name = "tts-mod-vault";
+    exec = "tts-mod-vault";
+    icon = "tts_mod_vault_icon";
+    comment = "Tabletop Simulator Mod Vault";
+    desktopName = "TTS Mod Vault";
+    categories = [ "Utility" ];
+  };
 
   meta = {
     description = "Download and backup assets for your Tabletop Simulator mods";
